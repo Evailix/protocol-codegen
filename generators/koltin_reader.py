@@ -24,7 +24,7 @@ def generate_function_body(lines, padding):
         else:
             operation = f"data[{byte_index-padding}].toUInt()"
 
-        operation = f"{operation} and 0x{mask:02X}"
+        operation = f"{operation} and {mask}u"
 
         if val_shift != 0:
             operation = f"({operation}) shl {val_shift}"
@@ -46,4 +46,5 @@ print(f"fun {function_name}(data: ByteArray) {{")
 print(generate_function_body(lines["fields"], padding))
 
 print("}")
+
 
