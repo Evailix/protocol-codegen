@@ -16,7 +16,7 @@ def generate_function_body(lines, padding):
         if name != name_:
             if name_ != "":
                 kotlin_lines.append(line + generate_operation(operations))
-            line = f"    {name} = "
+            line = f"    val {name} = "
             operations = []
             name_ = name
         if byte_shift != 0:
@@ -46,3 +46,4 @@ print(f"fun {function_name}(data: ByteArray) {{")
 print(generate_function_body(lines["fields"], padding))
 
 print("}")
+
